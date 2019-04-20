@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Lab1
@@ -19,8 +20,15 @@ namespace Lab1
                 do
                 {
                     Console.WriteLine("Type the full path to image that you'd like to convert");
-                    Console.Write("File: ");
-                    var file = Console.ReadLine();
+                    string file;
+                    do
+                    {
+                        Console.Write("File: ");
+                        file = Console.ReadLine();
+                        if(!File.Exists(file))
+                            Console.WriteLine("File not exist, check name and try again");
+                    } while (!File.Exists(file));
+
                     Console.WriteLine(
                         "Type one of the following destination extensions: .jpg, .jpeg, .bmp, .gif, .png, .ico, .tif");
                     var extension = Console.ReadLine();
