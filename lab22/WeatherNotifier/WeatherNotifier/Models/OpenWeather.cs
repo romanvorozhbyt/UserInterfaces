@@ -20,19 +20,17 @@ namespace WeatherNotifier.Models
     {
         public double temp { get; set; }
         public double pressure { get; set; }
-        public int humidity { get; set; }
-        public int temp_min { get; set; }
-        public int temp_max { get; set; }
+        public double humidity { get; set; }
+        public double temp_min { get; set; }
+        public double temp_max { get; set; }
         public double sea_level { get; set; }
         public double grnd_level { get; set; }
-
-
     }
 
     public class Wind
     {
-        public int speed { get; set; }
-        public int deg { get; set; }
+        public double speed { get; set; }
+        public double deg { get; set; }
     }
 
     public class Clouds
@@ -42,8 +40,6 @@ namespace WeatherNotifier.Models
 
     public class Sys
     {
-        public int type { get; set; }
-        public int id { get; set; }
         public double message { get; set; }
         public string country { get; set; }
         public int sunrise { get; set; }
@@ -56,7 +52,6 @@ namespace WeatherNotifier.Models
         public List<Weather> weather { get; set; }
         public string @base { get; set; }
         public Main main { get; set; }
-        public int visibility { get; set; }
         public Wind wind { get; set; }
         public Clouds clouds { get; set; }
         public int dt { get; set; }

@@ -1,14 +1,44 @@
-﻿<Page
-    x:Class="WeatherNotifier.MainPage"
+﻿<Page SizeChanged="ResizeForm"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WeatherNotifier"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Windows.UI.Xaml.Controls.Maps"
+    x:Class="WeatherNotifier.MainPage"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Name="Grid"
+          Loaded="mainPageLoaded">
+
+        <Custom:MapControl
+            Name="Map"
+            MapTapped="MapUserTapped"
+            HorizontalAlignment="Left"
+            Margin="0,0,0,0"
+            VerticalAlignment="Center"
+            MapServiceToken="Ej8mxpiBk8AW5e6Y5Lzn~vOIVtx7M77rnyi3gr8XbDw~AjjJzMi0b7Tj8r0N0K8HWPwZQ0w_-eCBu2xXLsWoCAsMgh-_be6ccka0dktnEMqL "
+            Height="1059" Width="1480"/>
+        <RelativePanel Name="Panel" MinWidth="300" HorizontalAlignment="Left" Height="1059" Margin="1485,31,0,0" VerticalAlignment="Top" Width="425">
+            <TextBlock Name ="Latitude" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Margin="27,10,0,0" />
+            <TextBlock x:Name ="Longitude" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Margin="224,10,0,0"/>
+            <TextBlock x:Name ="CityName" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" Margin="27,45,0,0" />
+            <TextBlock  HorizontalAlignment="Left" Height="29" Text="Main Weather information:" TextWrapping="Wrap" VerticalAlignment="Top" Width="371" Margin="27,78,0,0" />
+            <TextBlock x:Name="CurrentTemp" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,180,0,0"/>
+            <TextBlock x:Name="MinTemp" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,208,0,0"/>
+            <TextBlock x:Name="MaxTemp" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,234,0,0"/>
+            <TextBlock x:Name="GroundLevel" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,261,0,0"/>
+            <TextBlock x:Name="SeaLevel" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,287,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Height="24" Text="Wind:" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,318,0,0"/>
+            <TextBlock x:Name="Speed" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,343,0,0"/>
+            <TextBlock x:Name="SpeedDegree" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,372,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Height="24" Text="Other:" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,403,0,0"/>
+            <TextBlock x:Name ="MainInfo" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" Margin="27,107,0,0" />
+            <TextBlock x:Name ="Description" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" Margin="27,145,0,0" />
+            <TextBlock x:Name="Humidity" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,428,0,0"/>
+            <TextBlock x:Name="Pressure" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Margin="27,456,0,0"/>
+        </RelativePanel>
 
     </Grid>
 </Page>

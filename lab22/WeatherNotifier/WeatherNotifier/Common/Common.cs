@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeatherNotifier.Common
 {
-
+    
     public class Common
     {
         public static string API_LINK = "http://api.openweathermap.org/data/2.5/";
@@ -23,7 +23,7 @@ namespace WeatherNotifier.Common
         public static string APIWeatherRequest(double lat, double lon, string units)
         {
             var requst = new StringBuilder(API_LINK);
-            requst.Append($"weather?at={lat}&lon={lon}&APPID={API_KEY}&units={units}");
+            requst.Append($"weather?lat={lat}&lon={lon}&APPID={API_KEY}&units={units}");
             return requst.ToString();
         }
 

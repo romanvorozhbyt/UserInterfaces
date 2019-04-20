@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,14 +11,16 @@ namespace WeatherNotifier.Helper
     {
         private readonly HttpClient _httpClient;
 
-        public Helper(HttpClient httpClient)
+        public Helper()
         {
-            _httpClient = httpClient == null ? httpClient : new HttpClient();
+            _httpClient = new HttpClient();
+
         }
 
         public async Task<OpenWeather> GetWeatherByCoords(double lat, double lon)
         {
-            var response = await _httpClient.GetAsync(Common.Common.APIWeatherRequest(lat, lon, "metric"));
+            var response = _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, 
+               Common.Common.APIWeatherRequest(lat, lon, "metric"))).Result;
             var resultText = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
